@@ -2,6 +2,6 @@
 
 ```
 npm i
-npm build
+npm run build
 npm start
 ```
