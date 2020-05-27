@@ -9,7 +9,7 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 
-const DEFAULT_SERVER = './server/server.js';
+const DEFAULT_SERVER = './src/server/server.js';
 
 module.exports =
     {
@@ -17,11 +17,8 @@ module.exports =
             server: DEFAULT_SERVER
         },
         output: {
-            path: path.join(
-                __dirname,
-                'dist'
-            ),
-            publicPath: '/',
+            path: path.resolve(__dirname, 'dist'),
+            publicPath: '',
             filename: '[name].js'
         },
         mode: 'development',
@@ -46,10 +43,3 @@ module.exports =
             ]
         }
     };
-
-// Webpack 4 basic tutorial:
-// https://www.valentinog.com/blog/webpack-4-tutorial/#webpack_4_production_and_development_mode
-
-// Development mode is optimized for build speed and does nothing more than
-// providing an un-minified bundle. Production mode enables all sorts of
-// optimizations like minification, scope hoisting, tree-shaking and more.

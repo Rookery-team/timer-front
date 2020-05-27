@@ -271,8 +271,21 @@ module.exports = {
             deleteOriginalAssets : false
         } ),
         new HtmlWebPackPlugin( {
-            template      : './src/html/index.html',
-            filename      : './index.html',
+            template      : './src/html/home-guest.html',
+            filename      : './home-guest.html',
+            excludeChunks : ['server'],
+            title         : process.env.APP_NAME || 'Ipssi timer',
+            minify        : true,
+            cache         : true,
+            meta          : {
+                description : process.env.APP_DESCRIPTION || '',
+                keywords    : process.env.APP_KEYWORDS || '',
+                viewport    : 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            }
+        } ),
+        new HtmlWebPackPlugin( {
+            template      : './src/html/home-user.html',
+            filename      : './home-user.html',
             excludeChunks : ['server'],
             title         : process.env.APP_NAME || 'Ipssi timer',
             minify        : true,
@@ -285,6 +298,7 @@ module.exports = {
         } ),
         // new HtmlWebpackExcludeAssetsPlugin(),
         new HtmlWebpackChangeAssetsExtensionPlugin(),
-        new webpack.EnvironmentPlugin( { ...process.env } )
+        new webpack.EnvironmentPlugin( { ...process.env } ),
+        new webpack.HotModuleReplacementPlugin()
     ]
 };
