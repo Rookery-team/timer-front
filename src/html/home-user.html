@@ -10,7 +10,28 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 </head>
-<body>
+<body class="home-user-page">
+
+
+<nav class="navbar navbar-transparent bg-transparent">
+    <div class="navbar-nav" id="leftNav">
+        <a class="nav-item nav-link active" href="#">IPSSI Timer <span class="sr-only">(current)</span></a>
+    </div>
+    <div class="navbar-nav" id="rightNav">
+        <!--<a class="nav-item nav-link" href="#">Mon compte</a>-->
+    </div>
+</nav>
+
+<section id="leftSection">
+    <h1>Mes<br>groupes</h1>
+    <div class="groups-grid"></div>
+</section>
+
+<section id="rightSection">
+    <h1>Groupes<br>rejoints</h1>
+    <div class="groups-grid"></div>
+</section>
+
 
 <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -18,6 +39,14 @@
         crossorigin="anonymous"></script>
 <script
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(event) {
+        initializeHomeUserPage();
+    });
+</script>
+
+
 
 </body>
 </html>

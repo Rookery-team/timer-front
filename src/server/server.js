@@ -32,6 +32,15 @@ app.get('/', (req, res, next) => {
         res.end();
     }
 );
+app.get('/dashboard', (req, res, next) => {
+        res.set(
+            'Content-Security-Policy',
+            'style-src \'self\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; default-src \'self\' https://fonts.gstatic.com'
+        );
+        res.render(VIEW_HOME_USER);
+        res.end();
+    }
+);
 
 const PORT = process.env.PORT || 8042;
 

@@ -1,0 +1,75 @@
+
+body.home-user-page {
+
+  & > .navbar {
+
+    .navbar-nav {
+
+      &#leftNav {
+        color: #0477BF;
+
+        a {
+          color: #0477BF;
+        }
+      }
+
+      &#rightNav {
+        color: #FFF;
+
+        a {
+          color: #FFF;
+        }
+      }
+
+
+    }
+
+  }
+
+  & > section {
+
+    &#leftSection {
+      background-color: white;
+      color: black;
+    }
+
+    &#rightSection {
+      background-color: #0477BF;
+      color: white;
+    }
+
+  }
+
+  .groups-grid {
+
+    margin-top: 4vw;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    .group {
+      $size: 10.3333vw;
+      $background: $gray-300;
+      $color: $black;
+      $font-size: 1.35vw;
+      $padding: 1vw;
+
+      width: $size;
+      height: $size;
+      background: $background;
+      color: $color;
+      padding: $padding;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      span {
+        text-align: center;
+        font-size: $font-size;
+      }
+    }
+
+  }
+
+}
