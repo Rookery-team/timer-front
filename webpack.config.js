@@ -272,7 +272,7 @@ module.exports = {
         } ),
         new HtmlWebPackPlugin( {
             template      : './src/html/home-guest.html',
-            filename      : './home-guest.html',
+            filename      : './views/home-guest.html',
             excludeChunks : ['server'],
             title         : process.env.APP_NAME || 'Ipssi timer',
             minify        : true,
@@ -285,7 +285,7 @@ module.exports = {
         } ),
         new HtmlWebPackPlugin( {
             template      : './src/html/home-user.html',
-            filename      : './home-user.html',
+            filename      : './views/home-user.html',
             excludeChunks : ['server'],
             title         : process.env.APP_NAME || 'Ipssi timer',
             minify        : true,

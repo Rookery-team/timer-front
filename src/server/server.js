@@ -12,18 +12,18 @@ const app = express(),
 const devMiddleware = webpackDevMiddleware(compiler, {publicPath: config.output.publicPath});
 const hotMiddleware = webpackHotMiddleware(compiler);
 
-const VIEW_HOME_GUEST = path.join(process.cwd(), "./dist/home-guest.html");
-const VIEW_HOME_USER = path.join(process.cwd(), "./dist/home-user.html");
+const VIEW_HOME_GUEST = path.join(process.cwd(), "./dist/views/home-guest.html");
+const VIEW_HOME_USER = path.join(process.cwd(), "./dist/views/home-user.html");
 
 app.use(devMiddleware);
 app.use(hotMiddleware);
 
-app.use(express.static(path.join(__dirname, 'dist')));
-app.set('views', path.join(__dirname, 'dist'));
+app.use(express.static(path.join(process.cwd(), './dist')));
+app.set('views', path.join(process.cwd(), './dist/views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.get('*', (req, res, next) => {
+app.get('/', (req, res, next) => {
         res.set(
             'Content-Security-Policy',
             'style-src \'self\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; default-src \'self\' https://fonts.gstatic.com'
