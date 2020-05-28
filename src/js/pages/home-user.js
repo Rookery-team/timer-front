@@ -1,9 +1,9 @@
 import {GroupsGrid} from "../groups";
 import {GRID_TYPE_GROUPS_JOINED, GRID_TYPE_MY_GROUPS} from "../config/groups";
 
-window.initializeHomeUserPage = function () {
+export function initializeHomeUserPage () {
     initializeGroupsGrids();
-};
+}
 
 
 function initializeGroupsGrids () {
@@ -17,4 +17,10 @@ function initializeGroupsGrids () {
         element: groupsJoinedGrid,
         type: GRID_TYPE_GROUPS_JOINED
     });
+}
+
+
+
+function initializeJoinGroupModal () {
+    const joinGroupModal = '';
 }

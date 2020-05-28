@@ -6,6 +6,7 @@
   "scripts": {
     "build": "rm -rf dist && webpack --mode development --config webpack.server.config.js --progress && webpack --mode development --config webpack.config.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "publish": "cd dist && rm -rf .git && git init && git remote add origin git@github.com:ipssi-timer/timer-front-public.git && git add * && git commit -m \"Publication d'une nouvelle version\" && git push -f origin master",
     "start": "node ./dist/server.js"
   },
   "keywords": [],

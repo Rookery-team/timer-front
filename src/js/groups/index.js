@@ -49,8 +49,12 @@ function generateJoinGroupElement(options = {}) {
 }
 
 function generateGroupElement(options = {}) {
+
+    const name = options.name || '';
+
     return _createElementFromHTML([
         '<div class="group" onclick="(function(element){viewGroup(element)})(this)">',
+        `<span>${name}</span>`,
         '</div>'
     ].join(''));
 }
@@ -71,5 +75,21 @@ window.createGroup = function (element) {
         return true;
     }
     grid.appendChild(group);
+    return true;
+};
+
+window.joinGroup = function (element) {
+    const grid = element.closest('.groups-grid');
+    const group = generateGroupElement({
+        name: 'Group'
+    });
+    if ( 1 < grid.children.length ) {
+        grid.insertBefore(group, grid.children[1]);
+        return true;
+    }
+    grid.appendChild(group);
+    return true;
+};
+window.viewGroup = function (element) {
     return true;
 };

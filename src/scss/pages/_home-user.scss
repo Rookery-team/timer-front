@@ -63,10 +63,17 @@ body.home-user-page {
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
+
+      cursor: pointer;
+      user-select: none;
+
+      margin: 0 .5rem .5rem 0;
 
       span {
         text-align: center;
         font-size: $font-size;
+        pointer-events: none;
       }
     }
 

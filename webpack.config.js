@@ -300,6 +300,19 @@ module.exports = {
                 viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
             }
         }),
+        new HtmlWebPackPlugin({
+            template: './src/html/group.html',
+            filename: './views/group.html',
+            excludeChunks: ['server'],
+            title: process.env.APP_NAME || 'Ipssi timer',
+            minify: true,
+            cache: true,
+            meta: {
+                description: process.env.APP_DESCRIPTION || '',
+                keywords: process.env.APP_KEYWORDS || '',
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            }
+        }),
         // new HtmlWebpackExcludeAssetsPlugin(),
         new HtmlWebpackChangeAssetsExtensionPlugin(),
         new webpack.EnvironmentPlugin({...process.env}),

@@ -26,7 +26,7 @@ app.set('view engine', 'html');
 app.get('/', (req, res, next) => {
         res.set(
             'Content-Security-Policy',
-            'style-src \'self\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; default-src \'self\' https://fonts.gstatic.com'
+            'style-src-elem \'self\' data:; img-src \'self\' data:; style-src \'self\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; default-src \'self\' https://fonts.gstatic.com \'unsafe-inline\' \'unsafe-eval\''
         );
         res.render(VIEW_HOME_GUEST);
         res.end();
@@ -35,7 +35,7 @@ app.get('/', (req, res, next) => {
 app.get('/dashboard', (req, res, next) => {
         res.set(
             'Content-Security-Policy',
-            'style-src \'self\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; default-src \'self\' https://fonts.gstatic.com'
+            'style-src-elem \'self\' data:; img-src \'self\' data:; style-src \'self\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; default-src \'self\' https://fonts.gstatic.com \'unsafe-inline\' \'unsafe-eval\''
         );
         res.render(VIEW_HOME_USER);
         res.end();
