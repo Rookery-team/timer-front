@@ -1,4 +1,4 @@
-import {GRID_TYPE_GROUPS_JOINED, GRID_TYPE_MY_GROUPS} from "../config/groups";
+import {GRID_TYPE_GROUPS_JOINED, GRID_TYPE_MY_GROUPS} from "../../config/groups";
 
 export function GroupsGrid(options = {}) {
 
@@ -53,7 +53,7 @@ function generateGroupElement(options = {}) {
     const name = options.name || '';
 
     return _createElementFromHTML([
-        '<div class="group" onclick="(function(element){viewGroup(element)})(this)">',
+        '<div class="group" data-group-id="1" onclick="(function(element){viewGroup(element)})(this)">',
         `<span>${name}</span>`,
         '</div>'
     ].join(''));
@@ -70,7 +70,7 @@ window.createGroup = function (element) {
     const group = generateGroupElement({
         name: 'New group'
     });
-    if ( 1 < grid.children.length ) {
+    if (1 < grid.children.length) {
         grid.insertBefore(group, grid.children[1]);
         return true;
     }
@@ -83,7 +83,7 @@ window.joinGroup = function (element) {
     const group = generateGroupElement({
         name: 'Group'
     });
-    if ( 1 < grid.children.length ) {
+    if (1 < grid.children.length) {
         grid.insertBefore(group, grid.children[1]);
         return true;
     }
@@ -91,5 +91,28 @@ window.joinGroup = function (element) {
     return true;
 };
 window.viewGroup = function (element) {
+
+    const groupId = element.dataset.groupId;
+
+    fetch('/dashboard/group/' + groupId)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (response) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(response, "text/html");
+
+            const leftSection = doc.getElementById('leftSection');
+            const rightSection = doc.getElementById('rightSection');
+
+            const currentLeftSection = document.getElementById('leftSection');
+            const currentRightSection = document.getElementById('rightSection');
+
+            currentLeftSection.innerHTML = leftSection.innerHTML;
+            currentRightSection.innerHTML = rightSection.innerHTML;
+
+            window.history.pushState({}, document.title, '/dashboard/group');
+        });
+
     return true;
 };

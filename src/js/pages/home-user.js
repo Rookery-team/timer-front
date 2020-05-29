@@ -1,5 +1,5 @@
 import {GroupsGrid} from "../groups";
-import {GRID_TYPE_GROUPS_JOINED, GRID_TYPE_MY_GROUPS} from "../config/groups";
+import {GRID_TYPE_GROUPS_JOINED, GRID_TYPE_MY_GROUPS} from "../../config/groups";
 
 export function initializeHomeUserPage () {
     initializeGroupsGrids();

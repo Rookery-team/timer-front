@@ -20,7 +20,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: '',
+        publicPath: '/',
         filename: '[name].js'
     },
     mode: 'development',
@@ -303,6 +303,19 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './src/html/group.html',
             filename: './views/group.html',
+            excludeChunks: ['server'],
+            title: process.env.APP_NAME || 'Ipssi timer',
+            minify: true,
+            cache: true,
+            meta: {
+                description: process.env.APP_DESCRIPTION || '',
+                keywords: process.env.APP_KEYWORDS || '',
+                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+            }
+        }),
+        new HtmlWebPackPlugin({
+            template: './src/html/error_404.html',
+            filename: './views/error_404.html',
             excludeChunks: ['server'],
             title: process.env.APP_NAME || 'Ipssi timer',
             minify: true,
