@@ -27,6 +27,11 @@ module.exports = {
     target: 'web',
     // devtool: '#source-map',
     devtool: '#source-map',
+    resolve: {
+        modules: [
+            path.resolve(__dirname + 'dist'), 'node_modules'
+        ]
+    },
     module: {
         rules: [
             {

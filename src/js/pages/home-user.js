@@ -1,6 +1,7 @@
 module.exports = function() {
 
     const Groups = require('../Groups');
+    const Modal = require('../Modal');
 
     const leftNav = document.getElementById('leftNav');
     if (leftNav) {
@@ -15,13 +16,70 @@ module.exports = function() {
     }
 
     const myGroups = new Groups({
-        element: document.getElementById('myGroups'),
-        groups: []
+        element: document.querySelector('#myGroups .groups'),
+        groups: [
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 0, name: 'Un groupe' },
+            { id: 1, name: 'Un groupe' },
+            { id: 2, name: 'Un groupe' }
+        ],
+        onAdd: function (event) {
+            const modalCreateGroup = new Modal({
+                id: 'modalCreateGroup',
+                trigger: event.target,
+                onConfirm: function (modal) {
+                    // TODO : create group
+                },
+                onDeny: function (modal) {
+                    // TODO : error with modal
+                },
+                onClose: function (modal) {
+                    // TODO : on modal close ?
+                }
+            });
+        },
+        onClick: function(event) {
+            const {target} = event;
+            const groupId = target.dataset.id;
+            if (groupId) {
+                history.pushState({}, document.title, '/group/' + groupId);
+                onLoad();
+            }
+        }
     });
 
     const groupsJoined = new Groups({
-        element: document.getElementById('groupsJoined'),
-        groups: []
+        element: document.querySelector('#groupsJoined .groups'),
+        groups: [
+            { id: 0, name: 'Un groupe' },
+            { id: 1, name: 'Un groupe' },
+            { id: 2, name: 'Un groupe' },
+            { id: 2, name: 'Un groupe' },
+            { id: 2, name: 'Un groupe' }
+        ],
+        onAdd: function (event) {
+            const modalCreateGroup = new Modal({
+                id: 'modalJoinGroup',
+                trigger: event.target,
+                onConfirm: function (modal) {
+                    // TODO : create group
+                },
+                onDeny: function (modal) {
+                    // TODO : error with modal
+                },
+                onClose: function (modal) {
+                    // TODO : on modal close ?
+                }
+            });
+        }
     });
 
     console.log({groupsJoined, myGroups});

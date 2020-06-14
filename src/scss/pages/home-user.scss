@@ -1,11 +1,9 @@
 section#page[data-view="home-user"] {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   section#myGroups, section#groupsJoined {
     width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   section#myGroups {

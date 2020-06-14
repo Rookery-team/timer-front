@@ -2,14 +2,70 @@
 
 <section id="myGroups">
     <div class="container">
-        <h1>Mes<br>groupes</h1>
+        <h2>Mes<br>groupes</h2>
         <div class="groups"></div>
     </div>
 </section>
 
 <section id="groupsJoined">
     <div class="container">
-        <h1>Groupes<br>rejoints</h1>
+        <h2>Groupes<br>rejoints</h2>
         <div class="groups"></div>
     </div>
 </section>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalCreateGroup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Créer un groupe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form action="/create-group" class="w-100">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Nom du groupe">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary">Appliquer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalJoinGroup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rejoindre un groupe</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form action="/join-group" class="w-100">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Nom du groupe">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary">Appliquer</button>
+            </div>
+        </div>
+    </div>
+</div>
