@@ -23,31 +23,36 @@
 
     flex-direction: row;
 
-    &.theme-ipssi {
-      color: white;
-      & > a {
-        color: white;
-      } }
-
-    &.theme-ipssi-alt {
-      color: $primary;
-      & > a {
-        color: $primary;
-      } }
-
     &#leftNav {
+
       text-align: left;
       left: $margin;
 
       .nav-item {
+
         &:not(:first-of-type) {
-          margin-left: .5rem } } }
+          margin-left: .5rem;
+        }
+
+      }
+
+    }
 
     &#rightNav {
       text-align: right;
       justify-content: flex-end;
+
       right: $margin;
 
       .nav-item {
+
         &:not(:last-of-type) {
-          margin-right: .5rem } } } } }
+          margin-right: .5rem;
+        }
+
+      }
+    }
+
+  }
+
+}

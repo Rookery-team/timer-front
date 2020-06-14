@@ -1,0 +1,21 @@
+section#page[data-view="home-user"] {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  section#myGroups, section#groupsJoined {
+    width: 100%;
+  }
+
+  section#myGroups {
+    background-color: $primary;
+    color: white;
+  }
+
+  section#groupsJoined {
+    background-color: white;
+    color: $primary;
+  }
+
+}

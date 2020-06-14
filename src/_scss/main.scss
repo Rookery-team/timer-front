@@ -1,8 +1,9 @@
 
-@import "variables";
+@import "~bootstrap";
+
 @import "fonts";
 @import "navbar";
-@import "page";
+@import "sections";
 
 @import "pages/home-guest";
 @import "pages/home-user";

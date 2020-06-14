@@ -1,0 +1,29 @@
+section#page[data-view="home-guest"] {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  section#register, section#login {
+    width: 100%;
+  }
+
+  section#login {
+    background-color: $primary;
+    color: white;
+
+    .subtitle {
+      display: block;
+      width: 70%;
+      font-size: 1.25rem;
+
+      color: $light;
+    }
+  }
+
+  section#register {
+    background-color: white;
+    color: $primary;
+  }
+
+}

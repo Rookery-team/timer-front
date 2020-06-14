@@ -1,12 +1,51 @@
-import {initializeHomeUserPage} from "./js/pages/home-user";
-require('./js/groups/index');
+const View = require('./js/View');
 
-window.jQuery = window.$ = require('jquery');
-require('popper.js');
-require('bootstrap');
+
+let view;
+
+console.log({
+    foo: window.location.pathname
+});
 
 switch (window.location.pathname) {
+    case '/':
+        view = new View({
+            name: 'home-guest',
+            url: '/',
+            callback: function () {
+                const leftNav = document.getElementById('leftNav');
+                if (leftNav) {
+                    leftNav.classList.add('theme-ipssi');
+                    leftNav.classList.remove('theme-ipssi-alt');
+                }
+
+                const rightNav = document.getElementById('rightNav');
+                if (rightNav) {
+                    rightNav.classList.add('theme-ipssi-alt');
+                    rightNav.classList.remove('theme-ipssi');
+                }
+            }
+        });
+        view.display();
+        break;
     case '/dashboard':
-        initializeHomeUserPage();
+        view = new View({
+            name: 'home-user',
+            url: '/dashboard',
+            callback: function () {
+                const leftNav = document.getElementById('leftNav');
+                if (leftNav) {
+                    leftNav.classList.add('theme-ipssi');
+                    leftNav.classList.remove('theme-ipssi-alt');
+                }
+
+                const rightNav = document.getElementById('rightNav');
+                if (rightNav) {
+                    rightNav.classList.add('theme-ipssi-alt');
+                    rightNav.classList.remove('theme-ipssi');
+                }
+            }
+        });
+        view.display();
         break;
 }

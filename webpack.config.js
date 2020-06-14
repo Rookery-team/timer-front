@@ -275,49 +275,8 @@ module.exports = {
             deleteOriginalAssets: false
         }),
         new HtmlWebPackPlugin({
-            template: './src/html/home-guest.html',
-            filename: './views/home-guest.html',
-            excludeChunks: ['server'],
-            title: process.env.APP_NAME || 'Ipssi timer',
-            minify: true,
-            cache: true,
-            meta: {
-                description: process.env.APP_DESCRIPTION || '',
-                keywords: process.env.APP_KEYWORDS || '',
-                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-            }
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/html/home-user.html',
-            filename: './views/home-user.html',
-            excludeChunks: ['server'],
-            title: process.env.APP_NAME || 'Ipssi timer',
-            minify: true,
-            cache: true,
-            meta: {
-                description: process.env.APP_DESCRIPTION || '',
-                keywords: process.env.APP_KEYWORDS || '',
-                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-            }
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/html/group.html',
-            filename: './views/group.html',
-            excludeChunks: ['server'],
-            title: process.env.APP_NAME || 'Ipssi timer',
-            minify: true,
-            cache: true,
-            meta: {
-                description: process.env.APP_DESCRIPTION || '',
-                keywords: process.env.APP_KEYWORDS || '',
-                viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
-            }
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/html/error_404.html',
-            filename: './views/error_404.html',
-            excludeChunks: ['server'],
-            title: process.env.APP_NAME || 'Ipssi timer',
+            template: './src/html/index.html',
+            filename: './index.html',
             minify: true,
             cache: true,
             meta: {
