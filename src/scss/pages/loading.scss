@@ -1,19 +1,27 @@
-section#page[data-view="error-404"] {
+section#page[data-view="loading"] {
 
   section#leftSection, section#rightSection {
     width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
 
   section#leftSection {
     background-color: $primary;
     color: white;
+
+    & h2 {
+      font-size: 2rem;
+    }
   }
 
   section#rightSection {
     background-color: white;
     color: $primary;
+
+    & p {
+      font-size: 1.35rem;
+    }
   }
 
 }
