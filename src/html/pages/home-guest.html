@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="col-12">
-                    <button type="button" class="btn btn-lg rounded btn-outline-light">Se connecter</button>
+                    <button type="button" class="btn btn-lg rounded btn-outline-light" id="btnLogin">Se connecter</button>
                 </div>
 
             </form>
@@ -54,10 +54,29 @@
                 </div>
 
                 <div class="col-12">
-                    <button type="button" class="btn btn-lg rounded btn-primary">S'inscrire</button>
+                    <button type="button" class="btn btn-lg rounded btn-primary" id="btnRegister">S'inscrire</button>
                 </div>
 
             </form>
         </div>
     </div>
 </section>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalError">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Erreur</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Erreur
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

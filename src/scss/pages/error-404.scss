@@ -1,0 +1,19 @@
+section#page[data-view="error_404"] {
+
+  section#leftSection, section#rightSection {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  section#leftSection {
+    background-color: $primary;
+    color: white;
+  }
+
+  section#rightSection {
+    background-color: white;
+    color: $primary;
+  }
+
+}

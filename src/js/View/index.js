@@ -39,7 +39,8 @@ View.prototype.display = function () {
         page.setAttribute('data-view', viewInstance.name);
     }).then(function () {
         window.scrollTo(0, 0);
-        history.pushState({}, document.title, viewInstance.url);
+        let isAlreadyPathname = viewInstance.url === window.location.pathname;
+        if (false === isAlreadyPathname) history.pushState({}, document.title, viewInstance.url);
     }).then(function() {
         viewInstance.callback();
     });

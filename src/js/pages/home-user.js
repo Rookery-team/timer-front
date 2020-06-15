@@ -1,8 +1,5 @@
 module.exports = function() {
 
-    const Groups = require('../Groups');
-    const Modal = require('../Modal');
-
     const leftNav = document.getElementById('leftNav');
     if (leftNav) {
         leftNav.classList.add('theme-ipssi');
@@ -15,21 +12,37 @@ module.exports = function() {
         rightNav.classList.remove('theme-ipssi');
     }
 
+    initializeGroups();
+
+};
+
+function onClickGroup(event) {
+    const {target} = event;
+    const groupId = target.dataset.id;
+
+    history.pushState({groupId}, document.title, '/group/' + groupId );
+    onLoad();
+}
+
+function initializeGroups() {
+    const Groups = require('../Groups');
+    const Modal = require('../Modal');
+
     const myGroups = new Groups({
         element: document.querySelector('#myGroups .groups'),
         groups: [
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 0, name: 'Un groupe' },
-            { id: 1, name: 'Un groupe' },
-            { id: 2, name: 'Un groupe' }
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 1, name: 'Un groupe', onClick: onClickGroup },
+            { id: 2, name: 'Un groupe', onClick: onClickGroup }
         ],
         onAdd: function (event) {
             const modalCreateGroup = new Modal({
@@ -55,15 +68,14 @@ module.exports = function() {
             }
         }
     });
-
     const groupsJoined = new Groups({
         element: document.querySelector('#groupsJoined .groups'),
         groups: [
-            { id: 0, name: 'Un groupe' },
-            { id: 1, name: 'Un groupe' },
-            { id: 2, name: 'Un groupe' },
-            { id: 2, name: 'Un groupe' },
-            { id: 2, name: 'Un groupe' }
+            { id: 0, name: 'Un groupe', onClick: onClickGroup },
+            { id: 1, name: 'Un groupe', onClick: onClickGroup },
+            { id: 2, name: 'Un groupe', onClick: onClickGroup },
+            { id: 2, name: 'Un groupe', onClick: onClickGroup },
+            { id: 2, name: 'Un groupe', onClick: onClickGroup }
         ],
         onAdd: function (event) {
             const modalCreateGroup = new Modal({
@@ -81,11 +93,5 @@ module.exports = function() {
             });
         }
     });
-
     console.log({groupsJoined, myGroups});
-
-};
-
-function onClickGroup(event) {
-
 }
