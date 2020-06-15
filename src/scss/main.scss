@@ -7,10 +7,14 @@
 @import "navbar";
 @import "page";
 @import "groups";
+@import "projects";
+@import "users";
 
 @import "pages/home-guest";
 @import "pages/home-user";
 @import "pages/group";
+@import "pages/project";
+@import "pages/user";
 
 @import "pages/loading";
 @import "pages/error-404";

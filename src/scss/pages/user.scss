@@ -1,11 +1,9 @@
-section#page[data-view="error-404"] {
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+section#page[data-view="user"] {
 
   section#leftSection, section#rightSection {
     width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   section#leftSection {
@@ -16,12 +14,6 @@ section#page[data-view="error-404"] {
   section#rightSection {
     background-color: white;
     color: $primary;
-
-    p {
-      display: block;
-      width: 70%;
-      font-size: 1.25rem;
-    }
   }
 
 }

@@ -19,11 +19,11 @@ window.onLoad = function () {
             id = (function (path) {
                 return path.split('/').pop();
             })(url);
-            url = (function (pathname) {
-                pathname = pathname.split('/');
-                pathname = pathname.slice(0, pathname.length - 1);
-                pathname = pathname.join('/');
-                return pathname;
+            url = (function (path) {
+                path = path.split('/');
+                path = path.slice(0, path.length - 1);
+                path = path.join('/');
+                return path;
             })(pathname);
         }
 
@@ -50,12 +50,38 @@ window.onLoad = function () {
         case '/group':
             console.log({id});
             if (undefined === id || null === id) {
-                history.pushState({}, document.title, '/error-404');
+                history.replaceState({}, document.title, '/error-404');
             } else {
                 view = new View({
                     name: 'group',
                     url: '/group/' + id,
                     callback: require('./js/pages/group')
+                });
+                view.display();
+            }
+            break;
+        case '/project':
+            console.log({id});
+            if (undefined === id || null === id) {
+                history.replaceState({}, document.title, '/error-404');
+            } else {
+                view = new View({
+                    name: 'project',
+                    url: '/project/' + id,
+                    callback: require('./js/pages/project')
+                });
+                view.display();
+            }
+            break;
+        case '/user':
+            console.log({id});
+            if (undefined === id || null === id) {
+                history.replaceState({}, document.title, '/error-404');
+            } else {
+                view = new View({
+                    name: 'user',
+                    url: '/user/' + id,
+                    callback: require('./js/pages/user')
                 });
                 view.display();
             }
@@ -68,7 +94,7 @@ window.onLoad = function () {
             });
             view.display();
     }
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => onLoad());
 
