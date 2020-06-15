@@ -23,7 +23,7 @@ window.onLoad = function () {
         url = '/group';
     }
 
-    switch (window.location.pathname) {
+    switch (url) {
         case '/':
             view = new View({
                 name: 'home-guest',

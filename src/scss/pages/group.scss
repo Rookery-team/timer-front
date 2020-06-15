@@ -1,0 +1,19 @@
+section#page[data-view="group"] {
+
+  section#projects, section#users {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  section#projects {
+    background-color: $primary;
+    color: white;
+  }
+
+  section#users {
+    background-color: white;
+    color: $primary;
+  }
+
+}
