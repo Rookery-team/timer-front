@@ -85,3 +85,7 @@ module.exports = function() {
     console.log({groupsJoined, myGroups});
 
 };
+
+function onClickGroup(event) {
+
+}

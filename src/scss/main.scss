@@ -1,4 +1,6 @@
-@import "~bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 @import "variables";
 @import "fonts";
@@ -8,3 +10,4 @@
 
 @import "pages/home-guest";
 @import "pages/home-user";
+@import "pages/group";
