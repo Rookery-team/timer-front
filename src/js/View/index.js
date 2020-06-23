@@ -5,7 +5,8 @@ function View(args) {
     let defaultParameters = {
         name: 'error_404',
         url: '/404',
-        callback: () => {}
+        callback: () => {
+        }
     };
     args = {...defaultParameters, ...args};
 
@@ -35,15 +36,13 @@ View.prototype.display = function () {
         }
         return response.text();
     }).then(function (content) {
-        setTimeout(function() {
-            page.innerHTML = content;
-            page.setAttribute('data-view', viewInstance.name);
-        }, 0);
+        page.innerHTML = content;
+        page.setAttribute('data-view', viewInstance.name);
     }).then(function () {
         window.scrollTo(0, 0);
         let isAlreadyPathname = viewInstance.url === window.location.pathname;
         if (false === isAlreadyPathname) history.pushState({}, document.title, viewInstance.url);
-    }).then(function() {
+    }).then(function () {
         viewInstance.callback();
     });
 
