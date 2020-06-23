@@ -24,7 +24,7 @@ function Modal(args) {
     new bootstrap.Modal(document.getElementById('modalError'), options);
 
     const numberModal = document.querySelectorAll('.modal.show').length;
-    modal.style.zIndex = 1040 + 10 * numberModal;
+    modal.style.zIndex = '' + 1040 + 10 * numberModal;
 
     modal.addEventListener('hidden.bs.modal', function () {
         onClose(modal);
@@ -38,7 +38,7 @@ function Modal(args) {
             cursor++
         ) {
             const modalBackdrop = modalBackdrops.pop();
-            modalBackdrop.style.zIndex = 1039 + 10 * cursor;
+            modalBackdrop.style.zIndex = '' + 1039 + 10 * cursor;
             setTimeout(function () {
                 modalBackdrop.classList.add('modal-stack');
             }, 0);
