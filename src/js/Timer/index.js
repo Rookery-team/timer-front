@@ -66,17 +66,17 @@ Timer.prototype.play = function () {
 
     const components = this.element.querySelectorAll('.hand');
 
-    setTimeout(function () {
-        for (
-            let cursor = 0, cursorMax = components.length;
-            cursor < cursorMax;
-            cursor++
-        ) {
-            const component = components[cursor];
-            component.classList.remove('hand');
+    for (
+        let cursor = 0, cursorMax = components.length;
+        cursor < cursorMax;
+        cursor++
+    ) {
+        const component = components[cursor];
+        component.classList.remove('hand');
+        setTimeout(function () {
             component.classList.add('hand');
-        }
-    }, 0);
+        }, 0);
+    }
 
     const oneSecond = 1000;
     const oneMinute = oneSecond * 60;
