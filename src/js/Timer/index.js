@@ -38,8 +38,8 @@ Timer.prototype.pause = function () {
         return false;
     };
 
-    this.element.classList.add('pause');
     setTimeout(function () {
+        that.element.classList.add('pause');
         that.element.classList.remove('play');
     }, 0);
 
@@ -58,8 +58,8 @@ Timer.prototype.play = function () {
         return false;
     };
 
-    this.element.classList.add('play');
     setTimeout(function () {
+        that.element.classList.add('play');
         that.element.classList.remove('pause');
     }, 0);
 
