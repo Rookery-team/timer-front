@@ -31,15 +31,17 @@ function Timer(args) {
 Timer.prototype.pause = function () {
     const that = this;
 
-    this.element.classList.add('pause');
-    this.element.classList.remove('play');
-
-    this.element.onclick = function(event) {
+    this.element.onclick = function (event) {
         event.preventDefault();
         event.stopPropagation();
         that.play();
         return false;
     };
+
+    this.element.classList.add('pause');
+    setTimeout(function () {
+        that.element.classList.remove('play');
+    }, 0);
 
     this.onPause();
 };
@@ -50,14 +52,16 @@ Timer.prototype.play = function () {
 
     console.log({that});
 
-    this.element.onclick = function(event) {
+    this.element.onclick = function (event) {
         event.preventDefault();
         that.paused = true;
         return false;
     };
 
     this.element.classList.add('play');
-    this.element.classList.remove('pause');
+    setTimeout(function () {
+        that.element.classList.remove('pause');
+    }, 0);
 
     const components = this.element.querySelectorAll('.hand');
     for (
@@ -99,7 +103,7 @@ Timer.prototype.play = function () {
         parts[1] = (1 === parts[1].length) ? '0' + parts[1] : parts[1];
         parts[2] = (1 === parts[2].length) ? '0' + parts[2] : parts[2];
 
-        setTimeout(function() {
+        setTimeout(function () {
             face.innerText = parts.join(':');
         }, 0);
 
