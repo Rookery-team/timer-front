@@ -23,7 +23,7 @@ function Modal(args) {
 
     new bootstrap.Modal(document.getElementById('modalError'), options);
 
-    const numberModal = document.querySelectorAll('.modal:visible').length;
+    const numberModal = document.querySelectorAll('.modal.show').length;
     const zIndex = 1040 + 10 * numberModal;
     modal.style.zIndex = zIndex;
     let modalBackdrops = document.querySelectorAll('.modal-backdrop:not(.modal-stack)');
