@@ -25,7 +25,7 @@ function Timer(args) {
 
     this.element = element;
 
-    this.pause = false;
+    this.paused = false;
 }
 
 Timer.prototype.pause = function () {
