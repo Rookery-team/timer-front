@@ -34,6 +34,7 @@ Timer.prototype.pause = function () {
     this.element.onclick = function (event) {
         event.preventDefault();
         event.stopPropagation();
+        that.paused = false;
         that.play();
         return false;
     };
