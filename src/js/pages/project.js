@@ -26,7 +26,7 @@ module.exports = function() {
         }
     });
     console.log({timer});
-    timer.play();
+    timer.pause();
 
 
     window.footimer = timer;

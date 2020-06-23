@@ -24,12 +24,12 @@ function Timer(args) {
     this.onPause = onPause;
 
     this.element = element;
-
-    this.paused = false;
 }
 
 Timer.prototype.pause = function () {
     const that = this;
+
+    this.paused = true;
 
     this.element.onclick = function (event) {
         event.preventDefault();
