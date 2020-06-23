@@ -52,7 +52,7 @@
   pointer-events: none;
 
   &:after {
-    background: darken($primary, 45%);
+    background: black;
     border-radius: 50%;
     content: "";
     display: block;

@@ -51,7 +51,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^5.0.0-alpha1",
     "history": "^4.10.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
