@@ -24,19 +24,25 @@ function Modal(args) {
     new bootstrap.Modal(document.getElementById('modalError'), options);
 
     const numberModal = document.querySelectorAll('.modal.show').length;
-    const zIndex = 1040 + 10 * numberModal;
-    modal.style.zIndex = zIndex;
-    let modalBackdrops = document.querySelectorAll('.modal-backdrop:not(.modal-stack)');
-    if (0 < modalBackdrops.length) {
-        const modalBackdrop = modalBackdrops.pop();
-        modalBackdrop.style.zIndex = zIndex - 1;
-        setTimeout(function () {
-            modalBackdrop.classList.add('modal-stack');
-        }, 0);
-    }
+    modal.style.zIndex = 1040 + 10 * numberModal;
 
     modal.addEventListener('hidden.bs.modal', function () {
         onClose(modal);
+    });
+
+    modal.addEventListener('show.bs.modal', event => {
+        let modalBackdrops = document.querySelectorAll('.modal-backdrop:not(.modal-stack)');
+        for (
+            let cursor = 0, cursorMax = modalBackdrops.length;
+            cursor < cursorMax;
+            cursor++
+        ) {
+            const modalBackdrop = modalBackdrops.pop();
+            modalBackdrop.style.zIndex = 1039 + 10 * cursor;
+            setTimeout(function () {
+                modalBackdrop.classList.add('modal-stack');
+            }, 0);
+        }
     });
 
     const denyButton = modal.querySelector('.modal-footer .btn-danger');
