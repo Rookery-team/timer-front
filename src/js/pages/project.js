@@ -12,4 +12,23 @@ module.exports = function() {
         rightNav.classList.remove('theme-ipssi');
     }
 
+    const Timer = require('../Timer');
+    const timer = new Timer({
+        element: document.querySelector('.timer'),
+        onStart: function() {
+            console.log('timer starting !');
+        },
+        onUpdate: function() {
+            console.log('timer updating !');
+        },
+        onPause: function() {
+            console.log('timer pausing !');
+        }
+    });
+    console.log({timer});
+    timer.play();
+
+
+    window.footimer = timer;
+
 };

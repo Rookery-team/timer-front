@@ -31,7 +31,7 @@ window.onLoad = function () {
     })(window.location.pathname);
 
     switch (url) {
-        case '/':
+        case '/dsq':
             view = new View({
                 name: 'home-guest',
                 url: '/',
@@ -39,7 +39,7 @@ window.onLoad = function () {
             });
             view.display();
             break;
-        case '/dashboard':
+        case '/':
             view = new View({
                 name: 'home-user',
                 url: '/dashboard',
@@ -101,3 +101,25 @@ document.addEventListener('DOMContentLoaded', () => onLoad());
 window.onpopstate = function (e) {
     onLoad();
 };
+
+
+window.safeRequestAnimationFrame = (function () {
+    return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+}());
+window.safeCancelAnimationFrame = (function (handle) {
+    return window.cancelAnimationFrame ||
+        window.webkitCancelAnimationFrame ||
+        window.mozCancelAnimationFrame ||
+        window.oCancelAnimationFrame ||
+        window.msCancelAnimationFrame ||
+        function (callback) {
+            window.clearTimeout(handle);
+        };
+}());

@@ -1,0 +1,229 @@
+
+.timer {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+
+  &.play {
+    .timer-component .hand span {
+      animation-play-state: running;
+    }
+  }
+
+  &.pause {
+    .timer-component .hand span {
+      animation-play-state: paused;
+    }
+  }
+}
+
+.timer-component {
+  border-radius: 50%;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  width: 100px;
+  pointer-events: none;
+
+  &:after {
+    background: #111 url(https://codepen.io/images/classy_fabric.png);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 80px;
+    left: 10px;
+    position: absolute;
+    width: 80px;
+    top: 10px;
+  }
+
+  .hand {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+
+    span {
+      border: 50px solid rgba(0, 255, 255, .4);
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      border-radius: 50%;
+      display: block;
+      height: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: rotate(225deg);
+      width: 0;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    &:first-child {
+      transform: rotate(180deg);
+
+      span {
+        animation-name: spin1;
+      }
+    }
+
+    &:last-child {
+      span {
+        animation-name: spin2;
+      }
+    }
+  }
+}
+
+.timer-component.hour {
+  background: rgba(0, 0, 0, .3);
+  height: 400px;
+  left: 0;
+  width: 400px;
+  top: 0;
+
+  .hand {
+    span {
+      animation-duration: 3600s;
+      border-top-color: rgba(255, 0, 255, .4);
+      border-right-color: rgba(255, 0, 255, .4);
+      border-width: 200px;
+    }
+  }
+
+  &:after {
+    height: 360px;
+    left: 20px;
+    width: 360px;
+    top: 20px;
+  }
+}
+
+.timer-component.minute {
+  background: rgba(0, 0, 0, .2);
+  height: 350px;
+  left: 25px;
+  width: 350px;
+  top: 25px;
+
+  .hand {
+    span {
+      animation-duration: 60s;
+      border-top-color: rgba(0, 255, 255, .4);
+      border-right-color: rgba(0, 255, 255, .4);
+      border-width: 175px;
+    }
+  }
+
+  &:after {
+    height: 310px;
+    left: 20px;
+    width: 310px;
+    top: 20px;
+  }
+}
+
+.timer-component.second {
+  background: rgba(0, 0, 0, .2);
+  height: 300px;
+  left: 50px;
+  width: 300px;
+  top: 50px;
+
+  .hand {
+    span {
+      animation-duration: 1s;
+      border-top-color: rgba(255, 255, 255, .15);
+      border-right-color: rgba(255, 255, 255, .15);
+      border-width: 150px;
+    }
+  }
+
+  &:after {
+    height: 296px;
+    left: 2px;
+    width: 296px;
+    top: 2px;
+  }
+}
+
+.face {
+  background: rgba(0, 0, 0, .1);
+  border-radius: 50%;
+  height: 296px;
+  left: 52px;
+  padding: 165px 40px 0;
+  position: absolute;
+  width: 296px;
+  text-align: center;
+  top: 52px;
+
+  p {
+    border-radius: 20px;
+    font-size: 76px;
+    font-weight: 400;
+    position: absolute;
+    top: 17px;
+    width: 260px;
+    left: 20px;
+  }
+}
+
+
+.control {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  cursor: pointer;
+  transition: border 0.1s ease-in-out;
+  pointer-events: none;
+  margin: auto;
+
+  &:hover {
+    border: #333 3px solid;
+    .bar {
+      background-color: #333;
+    }
+  }
+
+  .bar {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 3px;
+    height: 1.6rem;
+    border-radius: 3px;
+    background-color: white;
+    transform-origin: center;
+    transition: transform 0.4s ease-in-out, background 0.1s ease-in-out;
+  }
+}
+
+
+.timer.play {
+  .control {
+    .bar:nth-child(1) {
+      transform: translateX(13.5px) translateY(-50%) rotate(0deg);
+    }
+    .bar:nth-child(2) {
+      transform: translateX(24px) translateY(-50%) rotate(0deg);
+    }
+  }
+}
+
+.timer.pause {
+  .control {
+    .bar:nth-child(1) {
+      transform: translateX(20px) translateY(calc(-7px - 50%)) rotate(-55deg);
+    }
+    .bar:nth-child(2) {
+      transform: translateX(20px) translateY(calc(7px - 50%)) rotate(-125deg);
+    }
+  }
+}
