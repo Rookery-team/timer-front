@@ -112,9 +112,9 @@ Timer.prototype.play = function () {
         parts[1] = (1 === parts[1].length) ? '0' + parts[1] : parts[1];
         parts[2] = (1 === parts[2].length) ? '0' + parts[2] : parts[2];
 
-        // setTimeout(function() {
+        setTimeout(function() {
             face.innerText = parts.join(':');
-        // }, 0);
+        }, 0);
 
         that.update();
     }
