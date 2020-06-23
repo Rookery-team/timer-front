@@ -34,13 +34,9 @@ Timer.prototype.pause = function () {
     this.element.classList.add('pause');
     this.element.classList.remove('play');
 
-    this.element.removeEventListener('click', function(event) {
-        event.preventDefault();
-        that.paused = true;
-        return false;
-    }, false);
     this.element.addEventListener('click', function(event) {
         event.preventDefault();
+        event.stopPropagation();
         that.play();
         return false;
     }, false);
@@ -54,13 +50,9 @@ Timer.prototype.play = function () {
 
     console.log({that});
 
-    this.element.removeEventListener('click', function(event) {
-        event.preventDefault();
-        that.play();
-        return false;
-    }, false);
     this.element.addEventListener('click', function(event) {
         event.preventDefault();
+        event.stopPropagation();
         that.paused = true;
         return false;
     }, false);
