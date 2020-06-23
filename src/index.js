@@ -31,7 +31,7 @@ window.onLoad = function () {
     })(window.location.pathname);
 
     switch (url) {
-        case '/dsq':
+        case '/':
             view = new View({
                 name: 'home-guest',
                 url: '/',
@@ -39,7 +39,7 @@ window.onLoad = function () {
             });
             view.display();
             break;
-        case '/':
+        case '/dashboard':
             view = new View({
                 name: 'home-user',
                 url: '/dashboard',
