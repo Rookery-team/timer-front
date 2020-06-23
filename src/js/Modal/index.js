@@ -21,7 +21,7 @@ function Modal(args) {
 
     const modal = document.getElementById(id);
 
-    new bootstrap.Modal(document.getElementById('myModal'), options);
+    new bootstrap.Modal(document.getElementById('modalError'), options);
 
     const numberModal = document.querySelectorAll('.modal:visible').length;
     const zIndex = 1040 + 10 * numberModal;
