@@ -23,7 +23,7 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js'
     },
-    mode: 'development',
+    mode: 'production',
     target: 'web',
     // devtool: '#source-map',
     devtool: '#source-map',
