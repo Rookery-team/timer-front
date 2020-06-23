@@ -1,7 +1,8 @@
 
-require('bootstrap');
 require('popper.js');
-window.$ = require('jquery');
+window.bootstrap = require('bootstrap');
+
+// window.$ = require('jquery');
 
 $(document).on('show.bs.modal', '.modal', function () {
     var zIndex = 1040 + (10 * $('.modal:visible').length);

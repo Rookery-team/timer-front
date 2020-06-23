@@ -4,6 +4,12 @@ function Modal(args) {
 
     let defaultParameters = {
         trigger: null,
+        options: {
+            keyboard: true,
+            backdrop: true,
+            focus: true,
+            show: true
+        },
         onConfirm: () => {},
         onDeny: () => {},
         onClose: () => {},
@@ -11,11 +17,11 @@ function Modal(args) {
     };
     args = {...defaultParameters, ...args};
 
-    const {id, onClose, onConfirm, onDeny, trigger} = args;
+    const {id, onClose, onConfirm, onDeny, trigger, options} = args;
 
     const modal = document.getElementById(id);
 
-    modal.modal();
+    new bootstrap.Modal(document.getElementById('myModal'), options);
 
     modal.addEventListener('hidden.bs.modal', function () {
         onClose(modal);
