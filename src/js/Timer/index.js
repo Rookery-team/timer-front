@@ -34,7 +34,7 @@ Timer.prototype.pause = function () {
     this.element.classList.add('pause');
     this.element.classList.remove('play');
 
-    /*this.element.removeEventListener('click', function(event) {
+    this.element.removeEventListener('click', function(event) {
         event.preventDefault();
         that.paused = true;
         return false;
@@ -43,7 +43,7 @@ Timer.prototype.pause = function () {
         event.preventDefault();
         that.play();
         return false;
-    }, false);*/
+    }, false);
 
     this.onPause();
 };
@@ -54,7 +54,7 @@ Timer.prototype.play = function () {
 
     console.log({that});
 
-    /*this.element.removeEventListener('click', function(event) {
+    this.element.removeEventListener('click', function(event) {
         event.preventDefault();
         that.play();
         return false;
@@ -63,7 +63,7 @@ Timer.prototype.play = function () {
         event.preventDefault();
         that.paused = true;
         return false;
-    }, false);*/
+    }, false);
 
     this.element.classList.add('play');
     this.element.classList.remove('pause');
