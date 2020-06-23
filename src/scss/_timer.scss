@@ -52,7 +52,7 @@
   pointer-events: none;
 
   &:after {
-    background: #111 url(https://codepen.io/images/classy_fabric.png);
+    background: darken($primary, 50%);
     border-radius: 50%;
     content: "";
     display: block;
@@ -113,8 +113,8 @@
   .hand {
     span {
       animation-duration: 3600s;
-      border-top-color: rgba(255, 0, 255, .4);
-      border-right-color: rgba(255, 0, 255, .4);
+      border-top-color: rgba(255, 0, 0, .85);
+      border-right-color: rgba(255, 0, 0, .85);
       border-width: 200px;
     }
   }
@@ -137,8 +137,8 @@
   .hand {
     span {
       animation-duration: 60s;
-      border-top-color: rgba(0, 255, 255, .4);
-      border-right-color: rgba(0, 255, 255, .4);
+      border-top-color: rgba(100, 221, 23, .4);
+      border-right-color: rgba(100, 221, 23, .4);
       border-width: 175px;
     }
   }
@@ -161,8 +161,8 @@
   .hand {
     span {
       animation-duration: 1s;
-      border-top-color: rgba(255, 255, 255, .15);
-      border-right-color: rgba(255, 255, 255, .15);
+      border-top-color: rgba(255, 255, 255, .45);
+      border-right-color: rgba(255, 255, 255, .45);
       border-width: 150px;
     }
   }
