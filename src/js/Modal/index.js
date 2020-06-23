@@ -21,16 +21,17 @@ function Modal(args) {
 
     const modal = document.getElementById(id);
 
-    new bootstrap.Modal(document.getElementById('modalError'), options);
+    const modalInstance = new bootstrap.Modal(document.getElementById('modalError'), options);
 
-    const numberModal = document.querySelectorAll('.modal.show').length;
-    modal.style.zIndex = '' + 1040 + 10 * numberModal;
+    modalInstance.show();
 
     modal.addEventListener('hidden.bs.modal', function () {
         onClose(modal);
     });
 
     modal.addEventListener('show.bs.modal', event => {
+        const numberModal = document.querySelectorAll('.modal.show').length;
+        modal.style.zIndex = '' + 1040 + 10 * numberModal;
         let modalBackdrops = document.querySelectorAll('.modal-backdrop:not(.modal-stack)');
         for (
             let cursor = 0, cursorMax = modalBackdrops.length;
