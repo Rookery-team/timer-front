@@ -36,7 +36,7 @@ Timer.prototype.pause = function () {
 
     this.element.removeEventListener('click', function(event) {
         event.preventDefault();
-        that.pause = true;
+        that.paused = true;
         return false;
     });
     this.element.addEventListener('click', function(event) {
@@ -59,7 +59,7 @@ Timer.prototype.play = function () {
     });
     this.element.addEventListener('click', function(event) {
         event.preventDefault();
-        that.pause = true;
+        that.paused = true;
         return false;
     });
 
@@ -91,7 +91,7 @@ Timer.prototype.play = function () {
     this.onStart();
 
     const handle = safeRequestAnimationFrame(_onStart);
-    if (true === this.pause) {
+    if (true === this.paused) {
         safeCancelAnimationFrame(handle);
         this.pause();
     }
