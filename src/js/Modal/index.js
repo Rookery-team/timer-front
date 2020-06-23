@@ -23,6 +23,18 @@ function Modal(args) {
 
     new bootstrap.Modal(document.getElementById('myModal'), options);
 
+    const numberModal = document.querySelectorAll('.modal:visible').length;
+    const zIndex = 1040 + 10 * numberModal;
+    modal.style.zIndex = zIndex;
+    let modalBackdrops = document.querySelectorAll('.modal-backdrop:not(.modal-stack)');
+    if (0 < modalBackdrops.length) {
+        const modalBackdrop = modalBackdrops.pop();
+        modalBackdrop.style.zIndex = zIndex - 1;
+        setTimeout(function () {
+            modalBackdrop.classList.add('modal-stack');
+        }, 0);
+    }
+
     modal.addEventListener('hidden.bs.modal', function () {
         onClose(modal);
     });
