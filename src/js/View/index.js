@@ -35,8 +35,10 @@ View.prototype.display = function () {
         }
         return response.text();
     }).then(function (content) {
-        page.innerHTML = content;
-        page.setAttribute('data-view', viewInstance.name);
+        setTimeout(function() {
+            page.innerHTML = content;
+            page.setAttribute('data-view', viewInstance.name);
+        }, 0);
     }).then(function () {
         window.scrollTo(0, 0);
         let isAlreadyPathname = viewInstance.url === window.location.pathname;
