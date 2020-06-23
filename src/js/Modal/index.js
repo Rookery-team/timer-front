@@ -15,9 +15,9 @@ function Modal(args) {
 
     const modal = document.getElementById(id);
 
-    $(modal).modal();
+    modal.modal();
 
-    $(modal).on('hidden.bs.modal', function () {
+    modal.addEventListener('hidden.bs.modal', function () {
         onClose(modal);
     });
 
