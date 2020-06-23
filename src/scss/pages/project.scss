@@ -9,6 +9,10 @@ section#page[data-view="project"] {
   section#leftSection {
     background-color: $primary;
     color: white;
+
+    .row-timer {
+      padding: 3.333vw;
+    }
   }
 
   section#rightSection {
