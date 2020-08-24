@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "_build": "rm -rf dist && webpack --mode development --config webpack.server.config.js --progress && webpack --mode development --config webpack.config.js --progress",
-    "build": "rm -rf dist && mkdir -p ./dist/pages && cp -rf ./src/html/pages/* ./dist/pages/ && cp -f ./src/.htaccess ./dist/.htaccess && webpack --mode development --config webpack.config.js --progress",
+    "build": "rm -rf dist && mkdir -p ./dist/pages && cp -rf ./src/html/pages/* ./dist/pages/ && cp -f ./src/.htaccess ./dist/.htaccess && webpack --mode production --config webpack.config.js --progress",
     "watch": "rm -rf dist && mkdir -p ./dist/pages && cp -rf ./src/html/pages/* ./dist/pages/ && webpack --mode development --config webpack.config.js --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "publish": "cd dist && rm -rf .git && git init && git remote add origin git@github.com:ipssi-timer/timer-front-public.git && git add -f * .htaccess && git commit -m \"Publication d'une nouvelle version\" && git push -f origin master",

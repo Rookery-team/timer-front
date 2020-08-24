@@ -81,7 +81,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|svg|jpe?g|gif)$/,
+                test: /\.(png|svg|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -293,6 +293,7 @@ module.exports = {
         // new HtmlWebpackExcludeAssetsPlugin(),
         new HtmlWebpackChangeAssetsExtensionPlugin(),
         new webpack.EnvironmentPlugin({...process.env}),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CopyWebpackPlugin({patterns:[{from: 'src/img', to: 'img'}]})
     ]
 };
