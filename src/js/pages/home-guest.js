@@ -59,7 +59,7 @@ function initializeAuthButtons() {
             body: formData,
             mode: 'cors',
             headers: {
-                'Content-type': 'multipart/form-data'
+                'Content-type': 'application/json'
             }})
             .then(function (response) {
                 return response.json();
@@ -103,7 +103,7 @@ function initializeAuthButtons() {
             body: formData,
             mode: 'cors',
             headers: {
-                'Content-type': 'multipart/form-data'
+                'Content-type': 'application/json'
             }})
             .then(function (response) {
                 return response.json();
