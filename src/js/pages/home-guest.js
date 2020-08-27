@@ -113,12 +113,7 @@ function initializeAuthButtons() {
                 if (ok) {
                     const {data} = response;
                     localStorage.setItem('user', data);
-                    const view = new View({
-                        name: 'home-user',
-                        url: '/dashboard',
-                        callback: require('./js/pages/home-user')
-                    });
-                    view.display();
+                    history.pushState({}, document.title, '/dashboard');
                 }
             })
             .catch(function (response) {
