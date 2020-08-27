@@ -25,15 +25,20 @@ function onClickGroup(event) {
 }
 
 function initializeGroups() {
-    const Groups = require('../Groups');
     const Modal = require('../Modal');
 
-    fetch(loginForm.action, {
-        method: loginForm.method,
-        body: formData,
+    const ENDPOINT_API = 'http://localhost:8001';
+    const urlMyGroups = ENDPOINT_API + '/user/groups/owned';
+    const urlGroupsJoined = ENDPOINT_API + '/user/groups/joined';
+
+    const userId = localStorage.getItem('user');
+
+    fetch(urlMyGroups, {
+        method: 'POST',
+        body: {userId},
         mode: 'cors',
         headers: {
-            'Content-type': 'multipart/form-data'
+            'Content-type': 'application/json'
         }})
         .then(function (response) {
             return response.json();
@@ -41,6 +46,8 @@ function initializeGroups() {
         .then(function(response) {
             const {ok} = response;
             if (ok) {
+                const {data} = response;
+                setMyGroups(data);
                 history.pushState({}, document.title, '/dashboard');
             }
         })
@@ -52,22 +59,52 @@ function initializeGroups() {
             });
         });
 
+        fetch(urlGroupsJoined, {
+            method: 'POST',
+            body: {userId},
+            headers: {
+                'Content-type': 'application/json'
+            }})
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(response) {
+            const {ok} = response;
+            if (ok) {
+                const {data} = response;
+                setMyGroups(data);
+                history.pushState({}, document.title, '/dashboard');
+            }
+        })
+        .catch(function (response) {
+            removeSpinnerInButton(target);
+            enableButton(target);
+            const modalError = new Modal({
+                id: 'modalError'
+            });
+        });
+}
+
+function setMyGroups(data) {
+    const Groups = require('../Groups');
+
+    let groups = [];
+
+    for (
+        let cursor = 0, cursorMax = data.length;
+        cursor < cursorMax;
+        cursor++) {
+
+        const entry = data[cursor];
+        const {id,name} = entry;
+
+        const group = {id, name, onClick, onClickGroup};
+        groups.push(group);
+    }
+
     const myGroups = new Groups({
+        groups,
         element: document.querySelector('#myGroups .groups'),
-        groups: [
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 1, name: 'Un groupe', onClick: onClickGroup },
-            { id: 2, name: 'Un groupe', onClick: onClickGroup }
-        ],
         onAdd: function (event) {
             const modalCreateGroup = new Modal({
                 id: 'modalCreateGroup',
@@ -92,22 +129,34 @@ function initializeGroups() {
             }
         }
     });
+}
+
+
+function setGroupsJoined(data) {
+    const Groups = require('../Groups');
+
+    let groups = [];
+
+    for (
+        let cursor = 0, cursorMax = data.length;
+        cursor < cursorMax;
+        cursor++) {
+
+        const entry = data[cursor];
+        const {id,name} = entry;
+
+        const group = {id, name, onClick, onClickGroup};
+        groups.push(group);
+    }
+
     const groupsJoined = new Groups({
         element: document.querySelector('#groupsJoined .groups'),
-        groups: [
-            { id: 0, name: 'Un groupe', onClick: onClickGroup },
-            { id: 1, name: 'Un groupe', onClick: onClickGroup },
-            { id: 2, name: 'Un groupe', onClick: onClickGroup },
-            { id: 2, name: 'Un groupe', onClick: onClickGroup },
-            { id: 2, name: 'Un groupe', onClick: onClickGroup }
-        ],
+        groups,
         onAdd: function (event) {
             const modalCreateGroup = new Modal({
                 id: 'modalJoinGroup',
                 trigger: event.target,
-                onConfirm: function (modal) {
-                    // TODO : create group
-                },
+                onConfirm: function (modal) {},
                 onDeny: function (modal) {
                     // TODO : error with modal
                 },

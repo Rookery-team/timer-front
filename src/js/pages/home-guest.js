@@ -66,6 +66,8 @@ function initializeAuthButtons() {
             .then(function(response) {
                 const {ok} = response;
                 if (ok) {
+                    const {data} = response;
+                    localStorage.setItem('user', data);
                     history.pushState({}, document.title, '/dashboard');
                 }
             })
@@ -100,7 +102,6 @@ function initializeAuthButtons() {
         fetch(registerForm.action, {
             method: 'POST',
             body: formData,
-            mode: 'cors',
             headers: {
                 'Content-type': 'application/json'
             }})
