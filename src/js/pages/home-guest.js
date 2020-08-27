@@ -27,8 +27,8 @@ function initializeAuthButtons() {
     const removeSpinnerInButton = require('../utils/_removeSpinnerInButton');
     const enableButton = require('../utils/_enableButton');
 
-    _initializeButton('btnLogin', onBtnLoginClick);
-    _initializeButton('btnRegister', onBtnRegisterClick);
+    // _initializeButton('btnLogin', onBtnLoginClick);
+    // _initializeButton('btnRegister', onBtnRegisterClick);
 
     function _initializeButton(button, onClick) {
         button = document.getElementById(button);
