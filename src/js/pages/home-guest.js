@@ -27,8 +27,8 @@ function initializeAuthButtons() {
     const removeSpinnerInButton = require('../utils/_removeSpinnerInButton');
     const enableButton = require('../utils/_enableButton');
 
-    // _initializeButton('btnLogin', onBtnLoginClick);
-    // _initializeButton('btnRegister', onBtnRegisterClick);
+    _initializeButton('btnLogin', onBtnLoginClick);
+    _initializeButton('btnRegister', onBtnRegisterClick);
 
     function _initializeButton(button, onClick) {
         button = document.getElementById(button);
@@ -54,13 +54,10 @@ function initializeAuthButtons() {
         const loginForm = document.getElementById('form-login');
         const formData = new FormData(loginForm);
 
-        fetch(ENDPOINT_API + '/api/v1/login', {
-            method: 'POST',
+        fetch(loginForm.action, {
+            method: loginForm.method,
             body: formData,
             mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            referrerPolicy: 'no-referrer',
             headers: {
                 'Content-type': 'multipart/form-data'
             }})
@@ -101,13 +98,10 @@ function initializeAuthButtons() {
         const registerForm = document.getElementById('form-register');
         const formData = new FormData(registerForm);
 
-        fetch(ENDPOINT_API + '/api/v1/register', {
-            method: 'POST',
+        fetch(registerForm.action, {
+            method: registerForm.method,
             body: formData,
             mode: 'cors',
-            cache: 'no-cache',
-            credentials: 'same-origin',
-            referrerPolicy: 'no-referrer',
             headers: {
                 'Content-type': 'multipart/form-data'
             }})
