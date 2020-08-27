@@ -108,6 +108,19 @@ function initializeAuthButtons() {
             .then(function (response) {
                 return response.json();
             })
+            .then(function (response) {
+                const {ok} = response;
+                if (ok) {
+                    const {data} = response;
+                    localStorage.setItem('user', data);
+                    const view = new View({
+                        name: 'home-user',
+                        url: '/dashboard',
+                        callback: require('./js/pages/home-user')
+                    });
+                    view.display();
+                }
+            })
             .catch(function (response) {
                 removeSpinnerInButton(target);
                 enableButton(target);
