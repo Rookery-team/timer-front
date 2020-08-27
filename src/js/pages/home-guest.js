@@ -55,7 +55,7 @@ function initializeAuthButtons() {
         const formData = new FormData(loginForm);
 
         fetch(loginForm.action, {
-            method: loginForm.method,
+            method: 'POST',
             body: formData,
             mode: 'cors',
             headers: {
@@ -99,7 +99,7 @@ function initializeAuthButtons() {
         const formData = new FormData(registerForm);
 
         fetch(registerForm.action, {
-            method: registerForm.method,
+            method: 'POST',
             body: formData,
             mode: 'cors',
             headers: {

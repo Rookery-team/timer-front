@@ -28,6 +28,30 @@ function initializeGroups() {
     const Groups = require('../Groups');
     const Modal = require('../Modal');
 
+    fetch(loginForm.action, {
+        method: loginForm.method,
+        body: formData,
+        mode: 'cors',
+        headers: {
+            'Content-type': 'multipart/form-data'
+        }})
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(response) {
+            const {ok} = response;
+            if (ok) {
+                history.pushState({}, document.title, '/dashboard');
+            }
+        })
+        .catch(function (response) {
+            removeSpinnerInButton(target);
+            enableButton(target);
+            const modalError = new Modal({
+                id: 'modalError'
+            });
+        });
+
     const myGroups = new Groups({
         element: document.querySelector('#myGroups .groups'),
         groups: [
