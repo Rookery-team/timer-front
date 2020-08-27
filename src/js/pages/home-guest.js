@@ -1,3 +1,5 @@
+const ENDPOINT_API = 'http://localhost:8081';
+
 module.exports = function () {
 
     const leftNav = document.getElementById('leftNav');
@@ -52,7 +54,7 @@ function initializeAuthButtons() {
         const loginForm = document.getElementById('form-login');
         const formData = new FormData(loginForm);
 
-        fetch('/api/v1/login', {method: 'POST', body: formData})
+        fetch(ENDPOINT_API + '/api/v1/login', {method: 'POST', body: formData})
             .then(function (response) {
                 return response.json();
             })
@@ -87,10 +89,10 @@ function initializeAuthButtons() {
         addSpinnerInButton(target);
         disableButton(target);
 
-        const loginForm = document.getElementById('form-login');
-        const formData = new FormData(loginForm);
+        const registerForm = document.getElementById('form-register');
+        const formData = new FormData(registerForm);
 
-        fetch('/api/v1/register', {method: 'post', body: formData})
+        fetch(ENDPOINT_API + '/api/v1/register', {method: 'post', body: formData})
             .then(function (response) {
                 return response.json();
             })
