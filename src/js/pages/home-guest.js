@@ -112,7 +112,6 @@ function initializeAuthButtons() {
                 const {ok} = response;
                 if (ok) {
                     const {data} = response;
-                    localStorage.setItem('user', data);
                     history.pushState({}, document.title, '/dashboard');
                 }
             })

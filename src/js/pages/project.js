@@ -17,21 +17,50 @@ module.exports = function() {
     const urlShowEntry = ENDPOINT_API + '/entry/show';
 
     const groupId = localStorage.getItem('groupId');
-    const userId = localStorage.getItem('userId');
+
+    fetch(urlShowEntry, {
+        method: 'POST',
+        body: {groupId},
+        headers: {
+            'Content-type': 'application/json'
+        }})
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(response) {
+            const {ok} = response;
+            if (ok) {
+                // TODO : Mettre l'entrée dans l'affichage des entrées (évite le rechargement de la page)
+                const {data} = response;
+                for (
+                    let cursor = 0, cursorMax = data.length;
+                    cursor < cursorMax;
+                    cursor++
+                ) {
+                    let entry = data[cursor];
+                    addEntry(entry);
+                }
+            }
+        })
+        .catch(function (response) {
+            const modalError = new Modal({
+                id: 'modalError'
+            });
+        });
 
     const Timer = require('../Timer');
     const timer = new Timer({
         element: document.querySelector('.timer'),
         onStart: function() {
-            console.log('timer starting !');
+            // console.log('timer starting !');
         },
         onUpdate: function() {
-            console.log('timer updating !');
+            // console.log('timer updating !');
         },
         onPause: function() {
             fetch(urlSaveEntry, {
                 method: 'POST',
-                body: {groupId, userId},
+                body: {groupId},
                 headers: {
                     'Content-type': 'application/json'
                 }})
@@ -42,6 +71,8 @@ module.exports = function() {
                     const {ok} = response;
                     if (ok) {
                         // TODO : Mettre l'entrée dans l'affichage des entrées (évite le rechargement de la page)
+                        const {data} = response;
+                        addEntry(data);
                     }
                 })
                 .catch(function (response) {
@@ -54,6 +85,18 @@ module.exports = function() {
     timer.pause();
 };
 
-function addEntry() {
-    // TODO : Ajoute une entree dans la liste des entrées affichées.
+
+function addEntry(entry) {
+    const {date,time} = entry;
+
+    const entries = document.querySelector('.entries');
+
+    const element = createElementFromHTML([
+        `<div class="entry">`,
+        `<span>${this.date}</span>`,
+        `<span>${this.time}</span>`,
+        '</div>'
+    ].join(''));
+
+    entries.appendChild(element);
 }

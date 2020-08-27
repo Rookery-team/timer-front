@@ -31,12 +31,9 @@ function initializeGroups() {
     const urlMyGroups = ENDPOINT_API + '/user/groups/owned';
     const urlGroupsJoined = ENDPOINT_API + '/user/groups/joined';
 
-    const userId = localStorage.getItem('user');
-
     fetch(urlMyGroups, {
         method: 'POST',
-        body: {userId},
-        mode: 'cors',
+        body: {},
         headers: {
             'Content-type': 'application/json'
         }})
@@ -61,7 +58,7 @@ function initializeGroups() {
 
         fetch(urlGroupsJoined, {
             method: 'POST',
-            body: {userId},
+            body: {},
             headers: {
                 'Content-type': 'application/json'
             }})
