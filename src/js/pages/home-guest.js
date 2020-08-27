@@ -54,7 +54,16 @@ function initializeAuthButtons() {
         const loginForm = document.getElementById('form-login');
         const formData = new FormData(loginForm);
 
-        fetch(ENDPOINT_API + '/api/v1/login', {method: 'POST', body: formData})
+        fetch(ENDPOINT_API + '/api/v1/login', {
+            method: 'POST',
+            body: formData,
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            referrerPolicy: 'no-referrer',
+            headers: {
+                'Content-type': 'multipart/form-data'
+            }})
             .then(function (response) {
                 return response.json();
             })
