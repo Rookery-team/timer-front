@@ -101,7 +101,16 @@ function initializeAuthButtons() {
         const registerForm = document.getElementById('form-register');
         const formData = new FormData(registerForm);
 
-        fetch(ENDPOINT_API + '/api/v1/register', {method: 'post', body: formData})
+        fetch(ENDPOINT_API + '/api/v1/register', {
+            method: 'POST',
+            body: formData,
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            referrerPolicy: 'no-referrer',
+            headers: {
+                'Content-type': 'multipart/form-data'
+            }})
             .then(function (response) {
                 return response.json();
             })
