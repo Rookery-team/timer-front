@@ -49,7 +49,13 @@ function initializeAuthButtons() {
         addSpinnerInButton(target);
         disableButton(target);
 
-        fetch('/api/v1/login')
+        const loginForm = document.getElementById('form-login');
+        const formData = new FormData(loginForm);
+
+        fetch('/api/v1/login', {
+            method: 'POST',
+            body: formData
+        })
             .then(function (response) {
                 return response.json();
             })

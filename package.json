@@ -4,7 +4,6 @@
   "description": "",
   "private": true,
   "scripts": {
-    "_build": "rm -rf dist && webpack --mode development --config webpack.server.config.js --progress && webpack --mode development --config webpack.config.js --progress",
     "build": "rm -rf dist && mkdir -p ./dist/pages && cp -rf ./src/html/pages/* ./dist/pages/ && cp -f ./src/.htaccess ./dist/.htaccess && webpack --mode production --config webpack.config.js --progress",
     "watch": "rm -rf dist && mkdir -p ./dist/pages && cp -rf ./src/html/pages/* ./dist/pages/ && webpack --mode development --config webpack.config.js --progress --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -44,7 +43,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
