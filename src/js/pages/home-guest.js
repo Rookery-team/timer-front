@@ -52,10 +52,7 @@ function initializeAuthButtons() {
         const loginForm = document.getElementById('form-login');
         const formData = new FormData(loginForm);
 
-        fetch('/api/v1/login', {
-            method: 'POST',
-            body: formData
-        })
+        fetch('/api/v1/login', {method: 'POST', body: formData})
             .then(function (response) {
                 return response.json();
             })
@@ -90,7 +87,10 @@ function initializeAuthButtons() {
         addSpinnerInButton(target);
         disableButton(target);
 
-        fetch('/api/v1/register')
+        const loginForm = document.getElementById('form-login');
+        const formData = new FormData(loginForm);
+
+        fetch('/api/v1/register', {method: 'post', body: formData})
             .then(function (response) {
                 return response.json();
             })
