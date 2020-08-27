@@ -57,7 +57,6 @@ function initializeAuthButtons() {
         fetch(loginForm.action, {
             method: 'POST',
             body: formData,
-            mode: 'cors',
             headers: {
                 'Content-type': 'application/json'
             }})
